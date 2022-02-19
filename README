@@ -1,0 +1,2 @@
+docker build -t gh-webhook .
+docker run -d -p 9000:9000 -e GITHUB_TOKEN=$GITHUB_TOKEN --name=gh-webhook gh-webhook -verbose

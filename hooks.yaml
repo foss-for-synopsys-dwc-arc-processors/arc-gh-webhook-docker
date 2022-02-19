@@ -1,0 +1,16 @@
+- id: gh-webhook
+  execute-command: "/usr/local/bin/dispatch-workflow.sh"
+  trigger-rule:
+    and:
+    - match:
+        type: payload-hmac-sha1
+        secret: zYM2TVFYSY
+        parameter:
+          source: header
+          name: X-Hub-Signature
+    - match:
+        type: value
+        value: refs/heads/arc64
+        parameter:
+          source: payload
+          name: ref
